@@ -5,7 +5,7 @@ package one.yate.pk.base.rule;
 
 import one.yate.pk.base.rule.strategy.IncrementStrategy;
 import one.yate.pk.core.rule.IRule;
-import one.yate.pk.core.rule.IdProvider;
+import one.yate.pk.core.rule.IdReader;
 
 /**
  * @author Yate
@@ -15,19 +15,19 @@ import one.yate.pk.core.rule.IdProvider;
  */
 public class IncrementPKRule implements IRule<IncrementStrategy> {
 
-    protected IdProvider p;
+    protected IdReader p;
     protected final Long init;
 
-    public IncrementPKRule(IdProvider p, Long init) {
+    public IncrementPKRule(IdReader p, Long init) {
         this.p = p;
         this.init = init;
     }
 
-    public IdProvider getProvider() {
+    public IdReader getProvider() {
         return p;
     }
 
-    public void setProvider(IdProvider p) {
+    public void setProvider(IdReader p) {
         this.p = p;
     }
 

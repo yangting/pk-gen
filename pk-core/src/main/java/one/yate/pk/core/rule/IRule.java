@@ -13,9 +13,9 @@ import one.yate.pk.core.rule.strategy.IRuleStrategy;
  */
 public interface IRule<S extends IRuleStrategy> {
 
-    IdProvider getProvider();
+    IdReader getProvider();
 
-    void setProvider(IdProvider p);
+    void setProvider(IdReader p);
 
     String genPrivateKey(S s) throws Exception;
 }

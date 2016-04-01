@@ -11,5 +11,5 @@ package one.yate.pk.core.rule.strategy;
  */
 public interface IRuleStrategy {
 
-    String build(Long id);
+    String build(String id);
 }

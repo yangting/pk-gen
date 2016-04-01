@@ -5,7 +5,7 @@ package one.yate.pk.base.rule;
 
 import one.yate.pk.base.rule.strategy.DateStrategy;
 import one.yate.pk.core.rule.IRule;
-import one.yate.pk.core.rule.IdProvider;
+import one.yate.pk.core.rule.IdReader;
 
 /**
  * @author Yate
@@ -15,9 +15,9 @@ import one.yate.pk.core.rule.IdProvider;
  */
 public class DatePKRule implements IRule<DateStrategy> {
 
-    protected IdProvider p;
+    protected IdReader p;
 
-    public DatePKRule(IdProvider p) {
+    public DatePKRule(IdReader p) {
         this.p = p;
     }
 
@@ -25,11 +25,11 @@ public class DatePKRule implements IRule<DateStrategy> {
         return s.build(p.getId());
     }
 
-    public IdProvider getProvider() {
+    public IdReader getProvider() {
         return p;
     }
 
-    public void setProvider(IdProvider p) {
+    public void setProvider(IdReader p) {
         this.p = p;
     }
 

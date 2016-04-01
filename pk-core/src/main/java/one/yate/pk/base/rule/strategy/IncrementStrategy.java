@@ -13,8 +13,8 @@ import one.yate.pk.core.rule.strategy.IRuleStrategy;
  */
 public class IncrementStrategy implements IRuleStrategy {
 
-    public String build(Long id) {
-        return id.toString();
+    public String build(String id) {
+        return id;
     }
 
 }

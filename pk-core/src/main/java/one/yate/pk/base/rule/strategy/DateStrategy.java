@@ -22,7 +22,7 @@ public class DateStrategy implements IRuleStrategy {
         sdf = new SimpleDateFormat(format);
     }
 
-    public String build(Long id) {
+    public String build(String id) {
         return sdf.format(new Date()) + id;
     }
 

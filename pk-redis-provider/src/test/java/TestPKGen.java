@@ -1,6 +1,6 @@
 import one.yate.pk.base.rule.DatePKRule;
 import one.yate.pk.base.rule.strategy.DateStrategy;
-import one.yate.pk.provider.redis.RedisIdProvider;
+import one.yate.pk.provider.redis.RedisReader;
 
 import org.junit.Test;
 
@@ -60,7 +60,7 @@ public class TestPKGen {
 
         JedisPool p = new JedisPool(redisConf, "192.168.7.85", 6379);
 
-        RedisIdProvider pv = new RedisIdProvider(p, "yate.id.gen.test");
+        RedisReader pv = new RedisReader(p, "yate.id.gen.test");
 
         DatePKRule drule = new DatePKRule(pv);
         

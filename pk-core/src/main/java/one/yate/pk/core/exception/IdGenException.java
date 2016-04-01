@@ -1,7 +1,7 @@
 /**
  * IdGenException.java
  */
-package one.yate.pk.provider.redis.exception;
+package one.yate.pk.core.exception;
 
 /**
  * @author Yate

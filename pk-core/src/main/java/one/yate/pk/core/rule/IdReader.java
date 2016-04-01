@@ -9,7 +9,7 @@ package one.yate.pk.core.rule;
  * @description TODO
  * @version 1.0
  */
-public interface IdProvider {
+public interface IdReader {
 
-    Long getId() throws Exception;
+    String getId() throws Exception;
 }
