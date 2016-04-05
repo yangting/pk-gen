@@ -22,7 +22,7 @@ public abstract class StoreBaseLoader implements ILoader {
     protected final String strFormat = "";
     protected volatile long currentValue;
 
-    protected int nextStep = 5000;
+    protected int nextStep = 100;
 
     public StoreBaseLoader(String ns, String key, DataSource ds) {
         this.nameSpace = ns;

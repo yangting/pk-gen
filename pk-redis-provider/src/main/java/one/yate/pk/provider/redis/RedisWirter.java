@@ -20,7 +20,6 @@ public class RedisWirter implements IdRedisWirter {
     protected ILoader loader;
     protected final String key;
     protected final JedisPool redisPool;
-    protected long current = -1;
 
     public RedisWirter(JedisPool jedisPool, String key, ILoader loader) {
         this.redisPool = jedisPool;
@@ -29,9 +28,7 @@ public class RedisWirter implements IdRedisWirter {
     }
 
     public void write() throws IdGenException {
-        if (this.current == -1)
-            this.current = loader.getCurrent();
-        List<String> x = loader.nextBatch(this.current);
+        List<String> x = loader.nextBatch();
 
         Jedis client = redisPool.getResource();
         if (client == null) {

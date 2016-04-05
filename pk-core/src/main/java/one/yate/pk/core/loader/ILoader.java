@@ -15,7 +15,7 @@ public interface ILoader {
 
     Long init();
 
-    List<String> nextBatch(Long v);
+    List<String> nextBatch();
 
     Long getCurrent();
 

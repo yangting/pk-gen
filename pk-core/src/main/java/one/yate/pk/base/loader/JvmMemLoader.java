@@ -19,21 +19,27 @@ public class JvmMemLoader implements ILoader {
     protected final String nameSpace;
     protected final String keyName;
     protected final String strFormat = "";
-    protected volatile long currentValue;
+    protected volatile long currentValue = -1;
 
     protected int nextStep = 100;
 
     public JvmMemLoader(String ns, String key) {
         this.nameSpace = ns;
         this.keyName = key;
-        currentValue = this.getCurrent();
+        currentValue = 0;
+    }
+
+    public JvmMemLoader(String ns, String key, long currentVal) {
+        this.nameSpace = ns;
+        this.keyName = key;
+        currentValue = currentVal;
     }
 
     public Long init() {
         return 0L;
     }
 
-    public List<String> nextBatch(Long v) {
+    public List<String> nextBatch() {
         List<String> x = new ArrayList<String>(nextStep);
         for (long i = currentValue + nextStep; i > currentValue; currentValue++) {
             if (strFormat == null || strFormat.trim().equals(""))
