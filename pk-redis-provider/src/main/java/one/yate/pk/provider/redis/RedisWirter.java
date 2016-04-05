@@ -7,7 +7,6 @@ import java.util.List;
 
 import one.yate.pk.core.exception.IdGenException;
 import one.yate.pk.core.loader.ILoader;
-import one.yate.pk.core.rule.IdWirter;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -17,15 +16,16 @@ import redis.clients.jedis.JedisPool;
  * @description TODO
  * @version 1.0
  */
-public class RedisWirter implements IdWirter {
+public class RedisWirter implements IdRedisWirter {
     protected ILoader loader;
     protected final String key;
     protected final JedisPool redisPool;
     protected long current = -1;
 
-    public RedisWirter(JedisPool jedisPool, String key) {
+    public RedisWirter(JedisPool jedisPool, String key, ILoader loader) {
         this.redisPool = jedisPool;
         this.key = key;
+        this.loader = loader;
     }
 
     public void write() throws IdGenException {
@@ -49,6 +49,26 @@ public class RedisWirter implements IdWirter {
 
     public void setLoader(ILoader loader) {
         this.loader = loader;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see one.yate.pk.provider.redis.IdRedisWirter#getKey()
+     */
+    @Override
+    public String getKey() {
+        return this.key;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see one.yate.pk.provider.redis.IdRedisWirter#getJedisPool()
+     */
+    @Override
+    public JedisPool getJedisPool() {
+        return this.redisPool;
     }
 
 }

@@ -35,7 +35,7 @@ public class JvmMemLoader implements ILoader {
 
     public List<String> nextBatch(Long v) {
         List<String> x = new ArrayList<String>(nextStep);
-        for (int i = 0; i > nextStep; currentValue++) {
+        for (long i = currentValue + nextStep; i > currentValue; currentValue++) {
             if (strFormat == null || strFormat.trim().equals(""))
                 x.add(currentValue + "");
             else {

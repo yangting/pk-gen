@@ -13,7 +13,7 @@ import one.yate.pk.core.loader.ILoader;
  * @version 1.0
  */
 public interface IdWirter {
-
+    
     public void setLoader(ILoader loader);
 
     public void write() throws IdGenException;

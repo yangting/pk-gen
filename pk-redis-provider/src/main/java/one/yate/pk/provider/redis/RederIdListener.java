@@ -26,10 +26,10 @@ public class RederIdListener implements IdListener<Void> {
     protected final int triggerValue;
     protected ExecutorService es = Executors.newSingleThreadExecutor();
 
-    public RederIdListener(String key, int triggerValue, JedisPool j, IdWirter w) {
+    public RederIdListener(int triggerValue, IdRedisWirter w) {
         this.w = w;
-        this.redisPool = j;
-        this.key = key;
+        this.redisPool = w.getJedisPool();
+        this.key = w.getKey();
         this.triggerValue = triggerValue;
         es.submit(this);
     }
