@@ -3,6 +3,8 @@
  */
 package one.yate.pk.provider.redis;
 
+import java.util.List;
+
 import one.yate.pk.core.exception.IdGenException;
 import one.yate.pk.core.rule.IdReader;
 import redis.clients.jedis.Jedis;
@@ -15,9 +17,10 @@ import redis.clients.jedis.JedisPool;
  * @version 1.0
  */
 public class RedisReader implements IdReader {
-    
+
     protected final String key;
     protected final JedisPool redisPool;
+    protected int timeOut = 5;
 
     public RedisReader(JedisPool jedisPool, String key) {
         this.redisPool = jedisPool;
@@ -31,16 +34,11 @@ public class RedisReader implements IdReader {
         }
 
         try {
-            if (client.exists(this.key)) {
-                String x = client.rpop(key);
-                if (x == null)
-                    throw new IdGenException(
-                            String.format("Read key list value is empty"));
-                return x;
-            } else {
-                throw new IdGenException(String.format("Read key={} not found",
-                        this.key));
-            }
+            List<String> x = client.brpop(timeOut, key);
+            if (x == null || x.isEmpty())
+                throw new IdGenException(
+                        String.format("Read key list value is empty"));
+            return x.get(1);
         } finally {
             if (client != null && client.isConnected()) {
                 client.close();

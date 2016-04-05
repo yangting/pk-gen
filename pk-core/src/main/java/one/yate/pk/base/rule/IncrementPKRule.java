@@ -16,11 +16,9 @@ import one.yate.pk.core.rule.IdReader;
 public class IncrementPKRule implements IRule<IncrementStrategy> {
 
     protected IdReader p;
-    protected final Long init;
 
-    public IncrementPKRule(IdReader p, Long init) {
+    public IncrementPKRule(IdReader p) {
         this.p = p;
-        this.init = init;
     }
 
     public IdReader getProvider() {
