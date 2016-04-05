@@ -36,7 +36,8 @@ public class RedisWirter implements IdRedisWirter {
         }
 
         try {
-            client.lpush(this.key, x.toArray(new String[0]));
+            if(!x.isEmpty())
+                client.lpush(this.key, x.toArray(new String[0]));
         } finally {
             if (client != null && client.isConnected()) {
                 client.close();

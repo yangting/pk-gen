@@ -96,7 +96,7 @@ public class MySqlLoader extends StoreBaseLoader {
                 this.currentValue += nextStep;
 
                 List<String> result = new ArrayList<String>(nextStep);
-                for (; oc <= currentValue; oc++) {
+                for (; oc < currentValue; oc++) {
                     if (strFormat == null || strFormat.trim().equals(""))
                         result.add(oc + "");
                     else

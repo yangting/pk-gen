@@ -48,11 +48,11 @@ public class RedisIdListener implements IdListener<Void> {
                     this.w.write();
                 }
 
-                Thread.sleep(TimeUnit.SECONDS.toMillis(2));
             } finally {
                 if (client != null && client.isConnected()) {
                     client.close();
                 }
+                Thread.sleep(TimeUnit.SECONDS.toMillis(2));
             }
 
         }

@@ -98,17 +98,20 @@ public class TestPKGen {
         redisConf.setTestOnReturn(true);
         redisConf.setTestWhileIdle(true);
 
-        JedisPool p = new JedisPool(redisConf, "192.168.7.85", 6379);
+        JedisPool p = new JedisPool(redisConf, "192.168.56.100", 6379);
 
         MysqlDataSource ds = new MysqlDataSource();
-        ds.setUrl("jdbc:mysql://192.168.7.154:3306/pkgen?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&autoReconnectForPools=true&zeroDateTimeBehavior=convertToNull");
+        ds.setUrl("jdbc:mysql://192.168.56.100:3306/pkgen?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&autoReconnectForPools=true&zeroDateTimeBehavior=convertToNull");
         ds.setDatabaseName("pkgen");
-        ds.setUser("wechatadmin");
-        ds.setPassword("portal!(!)cp");
+        ds.setUser("yate");
+        ds.setPassword("yate123");
 
         StoreBaseLoader loader = new MySqlLoader("test.mysql.yate",
                 "test.redis.support", ds);
 
+        // 两个写，测试冲突
+        new RedisIdListener(30,
+                new RedisWirter(p, "test.redis.support", loader));
         new RedisIdListener(30,
                 new RedisWirter(p, "test.redis.support", loader));
 
