@@ -24,20 +24,39 @@ public class IncrementPKRule implements IRule {
         this.s = s;
     }
 
-    public IdReader getProvider() {
-        return p;
+    public IRuleStrategy getRuleStrategy() {
+        return this.s;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see one.yate.pk.core.rule.IRule#getProvider()
+     */
+    @Override
+    public IdReader getProvider() {
+        return this.p;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * one.yate.pk.core.rule.IRule#setProvider(one.yate.pk.core.rule.IdReader)
+     */
+    @Override
     public void setProvider(IdReader p) {
         this.p = p;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see one.yate.pk.core.rule.IRule#genPrivateKey()
+     */
+    @Override
     public String genPrivateKey() throws Exception {
         return s.build(p.getId());
-    }
-
-    public IRuleStrategy getRuleStrategy() {
-        return this.s;
     }
 
 }

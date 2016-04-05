@@ -24,23 +24,6 @@ public class DatePKRule implements IRule {
         this.s = s;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see one.yate.pk.core.rule.IRule#getProvider()
-     */
-    @Override
-    public IdReader getProvider() {
-        return this.p;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * one.yate.pk.core.rule.IRule#setProvider(one.yate.pk.core.rule.IdReader)
-     */
-    @Override
     public void setProvider(IdReader p) {
         this.p = p;
     }
@@ -63,6 +46,16 @@ public class DatePKRule implements IRule {
     @Override
     public String genPrivateKey() throws Exception {
         return s.build(p.getId());
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see one.yate.pk.core.rule.IRule#getProvider()
+     */
+    @Override
+    public IdReader getProvider() {
+        return this.p;
     }
 
 }
