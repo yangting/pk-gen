@@ -20,7 +20,7 @@ import javax.sql.DataSource;
  * @description TODO
  * @version 1.0
  */
-public class MySqlLoader extends BaseLoader {
+public class MySqlLoader extends StoreBaseLoader {
 
     protected final static String UPDATE_SQL = "update pk_gen set current_val = ?,last_opt_time = ? where namespace = ? and key_name = ? and current_val = ?";
     protected final static String QUERY_SQL = "select current_val from pk_gen where namespace = ? and key_name = ?";

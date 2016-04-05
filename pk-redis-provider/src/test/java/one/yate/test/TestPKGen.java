@@ -1,3 +1,4 @@
+package one.yate.test;
 import one.yate.pk.base.rule.DatePKRule;
 import one.yate.pk.base.rule.strategy.DateStrategy;
 import one.yate.pk.provider.redis.RedisReader;

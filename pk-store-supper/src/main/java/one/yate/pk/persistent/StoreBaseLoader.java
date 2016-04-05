@@ -13,7 +13,7 @@ import one.yate.pk.core.loader.ILoader;
  * @description TODO
  * @version 1.0
  */
-public abstract class BaseLoader implements ILoader {
+public abstract class StoreBaseLoader implements ILoader {
 
     protected final DataSource ds;
 
@@ -24,7 +24,7 @@ public abstract class BaseLoader implements ILoader {
 
     protected int nextStep = 5000;
 
-    public BaseLoader(String ns, String key, DataSource ds) {
+    public StoreBaseLoader(String ns, String key, DataSource ds) {
         this.nameSpace = ns;
         this.keyName = key;
         this.ds = ds;
