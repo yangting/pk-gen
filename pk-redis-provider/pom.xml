@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>one.yate</groupId>
 		<artifactId>pk-gen</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.2</version>
 	</parent>
 	<artifactId>pk-redis-provider</artifactId>
 	<name>pk-redis-provider</name>
@@ -32,13 +32,13 @@
 		<dependency>
 			<groupId>one.yate</groupId>
 			<artifactId>pk-core</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>one.yate</groupId>
 			<artifactId>pk-store-supper</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2</version>
 		</dependency>
 
 		<dependency>

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>one.yate</groupId>
 		<artifactId>pk-gen</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.2</version>
 	</parent>
 	<artifactId>pk-store-supper</artifactId>
 	<name>pk-store-supper</name>
@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>one.yate</groupId>
 			<artifactId>pk-core</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2</version>
 		</dependency>
 
 	</dependencies>

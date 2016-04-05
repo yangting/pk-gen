@@ -1,5 +1,7 @@
 package one.yate.test;
 
+import one.yate.pk.base.rule.DatePKRule;
+import one.yate.pk.base.rule.strategy.DateStrategy;
 import one.yate.pk.core.rule.IdReader;
 import one.yate.pk.persistent.MySqlLoader;
 import one.yate.pk.persistent.StoreBaseLoader;
@@ -98,13 +100,13 @@ public class TestPKGen {
         redisConf.setTestOnReturn(true);
         redisConf.setTestWhileIdle(true);
 
-        JedisPool p = new JedisPool(redisConf, "192.168.56.100", 6379);
+        JedisPool p = new JedisPool(redisConf, "qb85", 6379);
 
         MysqlDataSource ds = new MysqlDataSource();
-        ds.setUrl("jdbc:mysql://192.168.56.100:3306/pkgen?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&autoReconnectForPools=true&zeroDateTimeBehavior=convertToNull");
+        ds.setUrl("jdbc:mysql://192.168.7.154:3306/pkgen?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&autoReconnectForPools=true&zeroDateTimeBehavior=convertToNull");
         ds.setDatabaseName("pkgen");
-        ds.setUser("yate");
-        ds.setPassword("yate123");
+        ds.setUser("wechatadmin");
+        ds.setPassword("portal!(!)cp");
 
         StoreBaseLoader loader = new MySqlLoader("test.mysql.yate",
                 "test.redis.support", ds);
@@ -117,9 +119,14 @@ public class TestPKGen {
 
         IdReader read = new RedisReader(p, "test.redis.support");
 
+        DatePKRule drule = new DatePKRule(read);
+
+        DateStrategy dsxx = new DateStrategy("yyyyMMdd");
+
         for (int i = 0; i < 1000; i++) {
             try {
-                System.out.println(read.getId());
+                String v = drule.genPrivateKey(dsxx);
+                System.out.println(v);
             } catch (Exception e) {
                 e.printStackTrace();
             }
