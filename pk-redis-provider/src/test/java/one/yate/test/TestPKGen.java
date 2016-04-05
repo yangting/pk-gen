@@ -2,7 +2,7 @@ package one.yate.test;
 
 import one.yate.pk.base.loader.JvmMemLoader;
 import one.yate.pk.core.rule.IdReader;
-import one.yate.pk.provider.redis.RederIdListener;
+import one.yate.pk.provider.redis.RedisIdListener;
 import one.yate.pk.provider.redis.RedisReader;
 import one.yate.pk.provider.redis.RedisWirter;
 
@@ -69,7 +69,7 @@ public class TestPKGen {
 
         JvmMemLoader loader = new JvmMemLoader("redis", "test.redis.support");
 
-        new RederIdListener(30,
+        new RedisIdListener(30,
                 new RedisWirter(p, "test.redis.support", loader));
 
         IdReader read = new RedisReader(p, "test.redis.support");

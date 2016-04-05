@@ -18,7 +18,7 @@ import redis.clients.jedis.JedisPool;
  * @description TODO
  * @version 1.0
  */
-public class RederIdListener implements IdListener<Void> {
+public class RedisIdListener implements IdListener<Void> {
 
     protected final IdWirter w;
     protected final JedisPool redisPool;
@@ -26,7 +26,7 @@ public class RederIdListener implements IdListener<Void> {
     protected final int triggerValue;
     protected ExecutorService es = Executors.newSingleThreadExecutor();
 
-    public RederIdListener(int triggerValue, IdRedisWirter w) {
+    public RedisIdListener(int triggerValue, IdRedisWirter w) {
         this.w = w;
         this.redisPool = w.getJedisPool();
         this.key = w.getKey();
