@@ -17,7 +17,7 @@ import one.yate.pk.core.rule.strategy.IRuleStrategy;
 public class IncrementPKRule implements IRule {
 
     protected IdReader p;
-    protected final IncrementStrategy s;
+    protected IncrementStrategy s;
 
     public IncrementPKRule(IdReader p, IncrementStrategy s) {
         this.p = p;
@@ -36,7 +36,7 @@ public class IncrementPKRule implements IRule {
         return s.build(p.getId());
     }
 
-    public IRuleStrategy getCurrentStrategy() {
+    public IRuleStrategy getRuleStrategy() {
         return this.s;
     }
 

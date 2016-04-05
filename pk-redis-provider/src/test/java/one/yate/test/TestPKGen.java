@@ -121,15 +121,16 @@ public class TestPKGen {
 
         IdReader read = new RedisReader(p, "test.redis.support");
 
-        DatePKRule drule = new DatePKRule(read, new DateStrategy("yyyyMMdd"));
-        
-        IncrementPKRule irule = new IncrementPKRule(read,
-                new IncrementStrategy());
+        DatePKRule drule = new DatePKRule(read);
+        DateStrategy dsxx = new DateStrategy("yyyyMMdd");
+
+        IncrementPKRule irule = new IncrementPKRule(read);
+        IncrementStrategy isxx = new IncrementStrategy();
 
         for (int i = 0; i < 1000; i++) {
             try {
-                String v = drule.genPrivateKey();
-                // String v = irule.genPrivateKey();
+                // String v = drule.genPrivateKey(dsxx);
+                String v = irule.genPrivateKey(isxx);
                 System.out.println(v);
             } catch (Exception e) {
                 e.printStackTrace();

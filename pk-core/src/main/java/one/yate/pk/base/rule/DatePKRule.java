@@ -17,27 +17,52 @@ import one.yate.pk.core.rule.strategy.IRuleStrategy;
 public class DatePKRule implements IRule {
 
     protected IdReader p;
-    protected final DateStrategy s;
+    protected DateStrategy s;
 
     public DatePKRule(IdReader p, DateStrategy s) {
         this.p = p;
         this.s = s;
     }
 
-    public String genPrivateKey() throws Exception {
-        return s.build(p.getId());
-    }
-
+    /*
+     * (non-Javadoc)
+     * 
+     * @see one.yate.pk.core.rule.IRule#getProvider()
+     */
+    @Override
     public IdReader getProvider() {
-        return p;
+        return this.p;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * one.yate.pk.core.rule.IRule#setProvider(one.yate.pk.core.rule.IdReader)
+     */
+    @Override
     public void setProvider(IdReader p) {
         this.p = p;
     }
 
-    public IRuleStrategy getCurrentStrategy() {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see one.yate.pk.core.rule.IRule#getRuleStrategy()
+     */
+    @Override
+    public IRuleStrategy getRuleStrategy() {
         return this.s;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see one.yate.pk.core.rule.IRule#genPrivateKey()
+     */
+    @Override
+    public String genPrivateKey() throws Exception {
+        return s.build(p.getId());
     }
 
 }

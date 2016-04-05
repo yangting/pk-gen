@@ -16,8 +16,8 @@ public interface IRule {
     IdReader getProvider();
 
     void setProvider(IdReader p);
-    
-    IRuleStrategy getCurrentStrategy();
+
+    IRuleStrategy getRuleStrategy();
 
     String genPrivateKey() throws Exception;
 }
