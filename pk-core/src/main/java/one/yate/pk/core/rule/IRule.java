@@ -11,11 +11,13 @@ import one.yate.pk.core.rule.strategy.IRuleStrategy;
  * @description TODO
  * @version 1.0
  */
-public interface IRule<S extends IRuleStrategy> {
+public interface IRule {
 
     IdReader getProvider();
 
     void setProvider(IdReader p);
+    
+    IRuleStrategy getCurrentStrategy();
 
-    String genPrivateKey(S s) throws Exception;
+    String genPrivateKey() throws Exception;
 }

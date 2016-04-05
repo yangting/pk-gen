@@ -6,6 +6,7 @@ package one.yate.pk.base.rule;
 import one.yate.pk.base.rule.strategy.DateStrategy;
 import one.yate.pk.core.rule.IRule;
 import one.yate.pk.core.rule.IdReader;
+import one.yate.pk.core.rule.strategy.IRuleStrategy;
 
 /**
  * @author Yate
@@ -13,15 +14,17 @@ import one.yate.pk.core.rule.IdReader;
  * @description TODO
  * @version 1.0
  */
-public class DatePKRule implements IRule<DateStrategy> {
+public class DatePKRule implements IRule {
 
     protected IdReader p;
+    protected final DateStrategy s;
 
-    public DatePKRule(IdReader p) {
+    public DatePKRule(IdReader p, DateStrategy s) {
         this.p = p;
+        this.s = s;
     }
 
-    public String genPrivateKey(DateStrategy s) throws Exception {
+    public String genPrivateKey() throws Exception {
         return s.build(p.getId());
     }
 
@@ -31,6 +34,10 @@ public class DatePKRule implements IRule<DateStrategy> {
 
     public void setProvider(IdReader p) {
         this.p = p;
+    }
+
+    public IRuleStrategy getCurrentStrategy() {
+        return this.s;
     }
 
 }
