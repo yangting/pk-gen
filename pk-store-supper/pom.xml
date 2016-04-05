@@ -8,8 +8,8 @@
 		<artifactId>pk-gen</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<artifactId>pk-persistent</artifactId>
-	<name>pk-persistent</name>
+	<artifactId>pk-store-supper</artifactId>
+	<name>pk-store-supper</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

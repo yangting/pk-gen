@@ -20,6 +20,7 @@
 	<modules>
 		<module>pk-core</module>
 		<module>pk-redis-provider</module>
+		<module>pk-store-supper</module>
 	</modules>
 
 	<properties>
