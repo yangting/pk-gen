@@ -6,7 +6,6 @@ package one.yate.pk.base.rule;
 import one.yate.pk.base.rule.strategy.IncrementStrategy;
 import one.yate.pk.core.rule.IRule;
 import one.yate.pk.core.rule.IdReader;
-import one.yate.pk.core.rule.strategy.IRuleStrategy;
 
 /**
  * @author Yate
@@ -14,14 +13,12 @@ import one.yate.pk.core.rule.strategy.IRuleStrategy;
  * @description TODO
  * @version 1.0
  */
-public class IncrementPKRule implements IRule {
+public class IncrementPKRule implements IRule<IncrementStrategy> {
 
     protected IdReader p;
-    protected final IncrementStrategy s;
 
-    public IncrementPKRule(IdReader p, IncrementStrategy s) {
+    public IncrementPKRule(IdReader p) {
         this.p = p;
-        this.s = s;
     }
 
     public IdReader getProvider() {
@@ -32,12 +29,8 @@ public class IncrementPKRule implements IRule {
         this.p = p;
     }
 
-    public String genPrivateKey() throws Exception {
+    public String genPrivateKey(IncrementStrategy s) throws Exception{
         return s.build(p.getId());
-    }
-
-    public IRuleStrategy getCurrentStrategy() {
-        return this.s;
     }
 
 }
