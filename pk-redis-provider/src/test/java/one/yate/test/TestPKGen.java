@@ -8,8 +8,8 @@ import one.yate.pk.core.rule.IdReader;
 import one.yate.pk.persistent.MySqlLoader;
 import one.yate.pk.persistent.StoreBaseLoader;
 import one.yate.pk.provider.redis.RedisIdListener;
-import one.yate.pk.provider.redis.RedisReader;
-import one.yate.pk.provider.redis.RedisWriter;
+import one.yate.pk.provider.redis.RedisIdReader;
+import one.yate.pk.provider.redis.RedisIdWriter;
 
 import org.junit.Test;
 
@@ -115,11 +115,11 @@ public class TestPKGen {
 
         // 两个写，测试冲突
         new RedisIdListener(30,
-                new RedisWriter(p, "test.redis.support", loader));
+                new RedisIdWriter(p, "test.redis.support", loader));
         new RedisIdListener(30,
-                new RedisWriter(p, "test.redis.support", loader));
+                new RedisIdWriter(p, "test.redis.support", loader));
 
-        IdReader read = new RedisReader(p, "test.redis.support");
+        IdReader read = new RedisIdReader(p, "test.redis.support");
 
         DatePKRule drule = new DatePKRule(read, new DateStrategy("yyyyMMdd"));
 

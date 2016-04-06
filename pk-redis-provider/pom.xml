@@ -30,13 +30,14 @@
 
 		<dependency>
 			<groupId>one.yate</groupId>
-			<artifactId>pk-core</artifactId>
+			<artifactId>pk-store-support</artifactId>
 			<version>0.0.2</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>one.yate</groupId>
-			<artifactId>pk-store-support</artifactId>
+			<artifactId>pk-core</artifactId>
 			<version>0.0.2</version>
 		</dependency>
 
