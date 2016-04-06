@@ -3,7 +3,6 @@
  */
 package one.yate.pk.base.rule;
 
-import one.yate.pk.base.rule.strategy.DateStrategy;
 import one.yate.pk.core.rule.IRule;
 import one.yate.pk.core.rule.IdReader;
 import one.yate.pk.core.rule.strategy.IRuleStrategy;
@@ -17,9 +16,9 @@ import one.yate.pk.core.rule.strategy.IRuleStrategy;
 public class DatePKRule implements IRule {
 
     protected IdReader p;
-    protected DateStrategy s;
+    protected IRuleStrategy s;
 
-    public DatePKRule(IdReader p, DateStrategy s) {
+    public DatePKRule(IdReader p, IRuleStrategy s) {
         this.p = p;
         this.s = s;
     }

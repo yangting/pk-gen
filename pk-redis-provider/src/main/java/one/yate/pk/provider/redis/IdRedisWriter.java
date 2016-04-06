@@ -3,7 +3,7 @@
  */
 package one.yate.pk.provider.redis;
 
-import one.yate.pk.core.rule.IdWirter;
+import one.yate.pk.core.rule.IdWriter;
 import redis.clients.jedis.JedisPool;
 
 /**
@@ -12,7 +12,7 @@ import redis.clients.jedis.JedisPool;
  * @description TODO
  * @version 1.0
  */
-public interface IdRedisWirter extends IdWirter {
+public interface IdRedisWriter extends IdWriter {
 
     public String getKey();
 

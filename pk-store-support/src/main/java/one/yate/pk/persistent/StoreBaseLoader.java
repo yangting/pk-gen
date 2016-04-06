@@ -19,7 +19,7 @@ public abstract class StoreBaseLoader implements ILoader {
 
     protected final String nameSpace;
     protected final String keyName;
-    protected final String strFormat = "";
+    protected String strFormat = "";
     protected volatile long currentValue;
 
     protected int nextStep = 100;
@@ -29,6 +29,14 @@ public abstract class StoreBaseLoader implements ILoader {
         this.keyName = key;
         this.ds = ds;
         currentValue = this.getCurrent();
+    }
+
+    public void setStrFormat(String strFormat) {
+        this.strFormat = strFormat;
+    }
+
+    public String getStrFormat() {
+        return strFormat;
     }
 
 }

@@ -18,7 +18,7 @@ public class JvmMemLoader implements ILoader {
 
     protected final String nameSpace;
     protected final String keyName;
-    protected final String strFormat = "";
+    protected String strFormat = "";
     protected volatile long currentValue = -1;
 
     protected int nextStep = 100;
@@ -53,6 +53,14 @@ public class JvmMemLoader implements ILoader {
 
     public Long getCurrent() {
         return this.currentValue;
+    }
+
+    public String getStrFormat() {
+        return strFormat;
+    }
+
+    public void setStrFormat(String strFormat) {
+        this.strFormat = strFormat;
     }
 
 }

@@ -3,7 +3,6 @@
  */
 package one.yate.pk.base.rule;
 
-import one.yate.pk.base.rule.strategy.IncrementStrategy;
 import one.yate.pk.core.rule.IRule;
 import one.yate.pk.core.rule.IdReader;
 import one.yate.pk.core.rule.strategy.IRuleStrategy;
@@ -17,9 +16,9 @@ import one.yate.pk.core.rule.strategy.IRuleStrategy;
 public class IncrementPKRule implements IRule {
 
     protected IdReader p;
-    protected IncrementStrategy s;
+    protected IRuleStrategy s;
 
-    public IncrementPKRule(IdReader p, IncrementStrategy s) {
+    public IncrementPKRule(IdReader p, IRuleStrategy s) {
         this.p = p;
         this.s = s;
     }

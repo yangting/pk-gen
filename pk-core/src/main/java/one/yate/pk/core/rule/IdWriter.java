@@ -12,7 +12,7 @@ import one.yate.pk.core.loader.ILoader;
  * @description TODO
  * @version 1.0
  */
-public interface IdWirter {
+public interface IdWriter {
     
     public void setLoader(ILoader loader);
 
