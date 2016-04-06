@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import one.yate.pk.core.rule.IdListener;
-import one.yate.pk.core.rule.IdWirter;
+import one.yate.pk.core.rule.IdWriter;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -20,13 +20,13 @@ import redis.clients.jedis.JedisPool;
  */
 public class RedisIdListener implements IdListener<Void> {
 
-    protected final IdWirter w;
+    protected final IdWriter w;
     protected final JedisPool redisPool;
     protected final String key;
     protected final int triggerValue;
     protected ExecutorService es = Executors.newSingleThreadExecutor();
 
-    public RedisIdListener(int triggerValue, IdRedisWirter w) {
+    public RedisIdListener(int triggerValue, IdRedisWriter w) {
         this.w = w;
         this.redisPool = w.getJedisPool();
         this.key = w.getKey();
