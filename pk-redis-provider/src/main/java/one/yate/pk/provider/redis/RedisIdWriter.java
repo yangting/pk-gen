@@ -16,12 +16,12 @@ import redis.clients.jedis.JedisPool;
  * @description TODO
  * @version 1.0
  */
-public class RedisWriter implements IdRedisWriter {
+public class RedisIdWriter implements IdRedisWriter {
     protected ILoader loader;
     protected final String key;
     protected final JedisPool redisPool;
 
-    public RedisWriter(JedisPool jedisPool, String key, ILoader loader) {
+    public RedisIdWriter(JedisPool jedisPool, String key, ILoader loader) {
         this.redisPool = jedisPool;
         this.key = key;
         this.loader = loader;

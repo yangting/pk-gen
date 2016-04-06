@@ -16,13 +16,13 @@ import redis.clients.jedis.JedisPool;
  * @description TODO
  * @version 1.0
  */
-public class RedisReader implements IdReader {
+public class RedisIdReader implements IdReader {
 
     protected final String key;
     protected final JedisPool redisPool;
     protected int timeOut = 5;
 
-    public RedisReader(JedisPool jedisPool, String key) {
+    public RedisIdReader(JedisPool jedisPool, String key) {
         this.redisPool = jedisPool;
         this.key = key;
     }
