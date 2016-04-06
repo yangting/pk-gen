@@ -37,7 +37,7 @@
 
 		<dependency>
 			<groupId>one.yate</groupId>
-			<artifactId>pk-store-supper</artifactId>
+			<artifactId>pk-store-support</artifactId>
 			<version>0.0.2</version>
 		</dependency>
 
