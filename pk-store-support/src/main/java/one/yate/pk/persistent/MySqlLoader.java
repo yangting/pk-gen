@@ -4,10 +4,10 @@
 package one.yate.pk.persistent;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -86,7 +86,7 @@ public class MySqlLoader extends StoreBaseLoader {
             conn = ds.getConnection();
             ps = conn.prepareStatement(UPDATE_SQL);
             ps.setLong(1, this.currentValue + this.nextStep);
-            ps.setDate(2, new Date(System.currentTimeMillis()));
+            ps.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
             ps.setString(3, this.nameSpace);
             ps.setString(4, this.keyName);
             ps.setLong(5, this.currentValue);
