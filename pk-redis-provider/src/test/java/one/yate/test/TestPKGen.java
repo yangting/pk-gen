@@ -1,9 +1,7 @@
 package one.yate.test;
 
 import one.yate.pk.base.rule.DatePKRule;
-import one.yate.pk.base.rule.IncrementPKRule;
 import one.yate.pk.base.rule.strategy.DateStrategy;
-import one.yate.pk.base.rule.strategy.IncrementStrategy;
 import one.yate.pk.core.rule.IdReader;
 import one.yate.pk.persistent.MySqlLoader;
 import one.yate.pk.persistent.StoreBaseLoader;
@@ -123,8 +121,8 @@ public class TestPKGen {
 
         DatePKRule drule = new DatePKRule(read, new DateStrategy("yyyyMMdd"));
 
-        IncrementPKRule irule = new IncrementPKRule(read,
-                new IncrementStrategy());
+//        IncrementPKRule irule = new IncrementPKRule(read,
+//                new IncrementStrategy());
 
         for (int i = 0; i < 1000; i++) {
             try {

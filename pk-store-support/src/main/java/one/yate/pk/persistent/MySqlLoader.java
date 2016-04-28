@@ -14,6 +14,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Yate
  * @date Apr 5, 2016
@@ -21,6 +24,8 @@ import javax.sql.DataSource;
  * @version 1.0
  */
 public class MySqlLoader extends StoreBaseLoader {
+
+    protected static Logger Log = LoggerFactory.getLogger(MySqlLoader.class);
 
     protected final static String UPDATE_SQL = "update pk_gen set current_val = ?,last_opt_time = ? where namespace = ? and key_name = ? and current_val = ?";
     protected final static String QUERY_SQL = "select current_val from pk_gen where namespace = ? and key_name = ?";
@@ -49,27 +54,27 @@ public class MySqlLoader extends StoreBaseLoader {
         // this.currentValue += nextStep;
         // }
         // } catch (SQLException e) {
-        // e.printStackTrace();
+        // Log.error(e.getMessage(), e);
         // } finally {
         // if (rs != null) {
         // try {
         // rs.close();
         // } catch (SQLException e) {
-        // e.printStackTrace();
+        // Log.error(e.getMessage(), e);
         // }
         // }
         // if (ps != null) {
         // try {
         // ps.close();
         // } catch (SQLException e) {
-        // e.printStackTrace();
+        // Log.error(e.getMessage(), e);
         // }
         // }
         // if (conn != null) {
         // try {
         // conn.close();
         // } catch (SQLException e) {
-        // e.printStackTrace();
+        // Log.error(e.getMessage(), e);
         // }
         // }
         // }
@@ -105,27 +110,27 @@ public class MySqlLoader extends StoreBaseLoader {
                 return result;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Log.error(e.getSQLState(), e);
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    Log.error(e.getMessage(), e);
                 }
             }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    Log.error(e.getMessage(), e);
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    Log.error(e.getMessage(), e);
                 }
             }
         }
@@ -150,27 +155,27 @@ public class MySqlLoader extends StoreBaseLoader {
                 return null;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Log.error(e.getSQLState(), e);
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    Log.error(e.getMessage(), e);
                 }
             }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    Log.error(e.getMessage(), e);
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    Log.error(e.getMessage(), e);
                 }
             }
 
